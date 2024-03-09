@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="signin.css">
+</head>
+<body>
+	<div class="session">
+		<div class="left">
+		<?xml version="1.0" encoding="UTF-8"?>
+		</div>
+		<form action="" class="log-in" autocomplete="off"> 
+		<h4><span>SIGNUP</span></h4>
+		<p>Welcome back! Log in to your account</p>
+		<div class="floating-label">
+			<input placeholder="Name" type="text" name="Name" autocomplete="off">
+			<label for="Name">Name:</label>
+		</div>
+		<div class="floating-label">
+			<input placeholder="Email" type="email" name="email" id="email" autocomplete="off" onblur="checkValue()">
+			<label for="email">Email:</label>
+		</div>
+		<div class="floating-label">
+			<input placeholder="Password" type="password" name="password" id="pass" autocomplete="off" onblur="checkValue()">
+			<label for="password">Password:</label>
+		</div>
+		<div id="error"></div>
+		<div class="bttn">
+			<button class="btn" id="signup" disabled>SignUp</button>
+			<button class="btn" id="login">Login</button>
+		</div>
+		</form>
+	</div>
+
+
+	<script>
+		const signup = document.querySelector('#signup')
+		const login = document.querySelector('#login')
+		const email = document.querySelector('#email')
+		const pass = document.querySelector('#pass')
+		const error = document.querySelector('#error')
+
+		function checkValue(){
+			if(email.value.trim() === '' || pass.value.trim() === ''){
+				error.innerHTML = '*Please fill in the details'
+				signup.disabled = true
+			}else{
+				error.innerHTML = ''
+				signup.disabled = false
+			}
+		}
+
+		login.addEventListener('click', (e) => {
+			e.preventDefault();
+			window.location.replace('http://127.0.0.1:5500/login.html');
+		})
+
+		signup.addEventListener('click', (e) => {
+			e.preventDefault()
+			const emailval = email.value
+			const passval = pass.value
+			
+			if(!localStorage.getItem(emailval)){
+				localStorage.setItem(emailval, passval);
+			}else{
+				alert('Already Registered')
+			}
+		})
+	</script>
+</body>
+</html>
