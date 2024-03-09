@@ -6,7 +6,6 @@ This is a Web Application to find recipes based on ingredients, cuisines, dishes
 2. Contains Infinite Scrolling so that users can see all the queried results.
 3. Has option of saving favourite recipes using a bookmark button.
 4. Displays loading indicator and handles errors gracefully.
-5. Has a button that will take you to the top of screen.
 
 ## Instructions 
 1. Run Signup.html in your local machine using live server.
