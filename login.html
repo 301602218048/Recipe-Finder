@@ -51,6 +51,7 @@
 
 	<script>
 		const btn = document.querySelector('.btn')
+		let base_url = window.location.origin;
 
 		btn.addEventListener('click', (e) => {
 			e.preventDefault()
@@ -59,11 +60,11 @@
 			
 			if(!localStorage.getItem(email)){
 				alert('SignUp First')
-                window.location.replace('http://127.0.0.1:5500/signup.html');
+                window.location.replace(`${base_url}/signup.html`);
 			}
 			else{
                 if(localStorage.getItem(email) === pass){
-                    window.location.replace('http://127.0.0.1:5500/index.html');
+                    window.location.replace(`${base_url}/index.html`);
                 }
 			}
 		})
